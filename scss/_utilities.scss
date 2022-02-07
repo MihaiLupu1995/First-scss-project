@@ -1,0 +1,40 @@
+.container {
+  max-width: rem(1100);
+  padding: rem(0 30);
+  margin: rem(0 auto);
+  overflow: auto;
+}
+
+// Set background $ text color
+
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}
+
+// Margin & padding classes
+
+$spaceamounts: (1, 2, 3, 4, 5);
+
+@each $space in $spaceamounts {
+  .m-#{$space} {
+    margin: #{$space}rem;
+  }
+  .my-#{$space} {
+    margin: #{$space}rem 0;
+  }
+
+  .p-#{$space} {
+    padding: #{$space}rem;
+  }
+  .py-#{$space} {
+    padding: #{$space}rem 0;
+  }
+}
+
+// transform PX in rem
+// @use "sass:math";
+
+@function rem($pixels, $context: 16) {
+  @return $pixels/ $context * 1rem;
+}
